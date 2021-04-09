@@ -10,23 +10,28 @@ import socket
 import sys
 import os
 
-localIP = "127.0.0.1"
-localPort = 2000
+os.system("cls")
+
+servidor = ("127.0.0.1", 2000)
 bufferSize = 1024
 
 TCPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-TCPServerSocket.bind((localIP, localPort))
-TCPServerSocket.listen()
+TCPServerSocket.bind(servidor)
+TCPServerSocket.listen(1)
+TCPServerSocket.setblocking(True)
 
-print("[*] Inicializando servidor...")
+print("[$] Iniciado Servidor...")
 
-while(True):
-    cliente, servidor = TCPServerSocket.accept()
-    print("[*] Comando recibido...") 
+while(True):     
+    TCPServerSocket.accept()
     comando = TCPServerSocket.recv(bufferSize)
-    print("[*] Ejecutando comando...")  
+    TCPServerSocket.setblocking(False)
+    print("[$] Recibiendo Comando...")     
     stream = os.popen(comando.decode())
+    print("[$] Ejecutando...")  
     salida = stream.read()
-    print("[*] Enviando la salida...")  
-    TCPServerSocket.sendto(str.encode(salida), servidor)
+    print("[$] Enviando Resultado...")
+    salida = salida.encode()  
+    TCPServerSocket.send(salida)
+    
 
