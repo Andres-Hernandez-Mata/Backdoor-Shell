@@ -13,4 +13,12 @@ servidor = ("127.0.0.1", 2000)
 bufferSize = 1024
 
 TCPClientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+TCPClientSocket.connect(servidor)
+print("[-] Iniciando conexión...")
+
+while True:
+    comando = input("> ")
+    if comando == "exit":
+        TCPClientSocket.close()
+        sys.exit
 
