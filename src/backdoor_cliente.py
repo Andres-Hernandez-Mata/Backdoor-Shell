@@ -16,7 +16,7 @@ TCPClientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 TCPClientSocket.connect(servidor)
 print("[+] Estableciendo conexión...")
 
-while True:
+while(True):
     print("[-] Ingrese el comando a ejecutar...")
     comando = input("> ")
     if comando == "exit":
