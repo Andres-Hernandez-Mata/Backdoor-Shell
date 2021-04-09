@@ -15,7 +15,7 @@ localPort = 2000
 bufferSize = 1024
 
 TCPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-TCPServerSocket.bind(localIP, localPort)
+TCPServerSocket.bind((localIP, localPort))
 TCPServerSocket.listen()
 
 print("[*] Inicializando servidor...")
