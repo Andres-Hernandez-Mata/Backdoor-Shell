@@ -17,19 +17,19 @@ TCPClientSocket.connect(servidor)
 print("[+] Estableciendo conexión...")
 
 while(True):
-    print("[-] Ingrese el comando a ejecutar...")
+    print("[+] Ingrese el comando a ejecutar...")
     comando = input("> ")
     if comando == "exit":
-        print("[-] Cerrando conexion...")        
+        print("[+] Cerrando conexion...")        
         TCPClientSocket.close()
         print("[+] Saliendo...")        
-        print("[-] Bye")
+        print("[+] Bye")
         sys.exit()
     else:
         print("[+] Enviando comando...")
         TCPClientSocket.sendto(str.encode(comando), servidor)
         salida = TCPClientSocket.recv(bufferSize)
-        print("[-] Espere un momento...")
+        print("[+] Espere un momento...")
         resultado = salida.decode()
         print("[+] Salida")
         print(resultado)
