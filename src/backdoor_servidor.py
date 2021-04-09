@@ -6,9 +6,15 @@ Python: 3.9.1
 Fecha: 08 Abril 2020
 """
 
+import socket
+import sys
+
 localIP = "127.0.0.1"
 localPort = 2000
 bufferSize = 1024
 
 TCPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+TCPServerSocket.bind(localIP, localPort)
+TCPServerSocket.listen()
+
 
