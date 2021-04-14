@@ -1,7 +1,7 @@
 """
 Uso: Backdoor Cliente
 Creador: Andrés Hernández Mata
-Version: 2.2.0
+Version: 3.0.0
 Python: 3.9.1
 Fecha: 08 Abril 2020
 """
@@ -11,11 +11,17 @@ import sys
 import os
 from colorama import Fore
 from colorama import Style
+import pyfiglet as header
+from termcolor import colored
 
 os.system("cls")
 
 servidor = ("127.0.0.1", 2000)
 bufferSize = 1024
+
+banner = header.figlet_format(" CLIENTE").upper()
+print(colored(banner.rstrip("\n"), 'red', attrs=['bold']))
+print(colored("ANDRES HERNANDEZ MATA | CIBERSEGURIDAD | LSTI\n", 'yellow', attrs=['bold']))
 
 try:
     TCPClientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
