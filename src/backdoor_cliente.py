@@ -1,6 +1,6 @@
 """
 Uso: Backdoor Cliente
-Creado: Andrés Hernández Mata
+Creador: Andrés Hernández Mata
 Version: 2.1.1
 Python: 3.9.1
 Fecha: 08 Abril 2020
