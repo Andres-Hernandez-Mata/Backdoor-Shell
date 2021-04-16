@@ -13,3 +13,7 @@ Un shell remoto (remote shell) es un programa que puede ejecutar comandos de she
 > pip install -r requirements.txt
 
 ```
+## Ejemplo
+
+![Aqui hay una imagen del ejemplo para ejecutar los scripts](img/start.png)
+
