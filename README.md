@@ -13,6 +13,34 @@ Un shell remoto (remote shell) es un programa que puede ejecutar comandos de she
 > pip install -r requirements.txt
 
 ```
+
+## Ejecución
+Debes ejecutar primero el programa del servidor.
+
+```python	
+
+> python src\backdoor_servidor.py
+
+```
+
+En otra terminal ejecuta el programa del cliente.
+
+```python	
+
+> python src\backdoor_cliente.py
+
+```
+
+Para finalizar la conexión del cliente y servidor, ingresa en la terminal del cliente el comando exit.
+
+```	
+[+] Ingresar comando...
+> exit
+[+] Cerrando conexion...
+[+] Saliendo...
+[-] Bye...
+```
+
 ## Ejemplo
 
 ![Aqui hay una imagen del ejemplo para ejecutar los scripts](img/start.png)
