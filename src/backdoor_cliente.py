@@ -43,9 +43,8 @@ try:
             print("[+] Enviando Comando...")
             comando = comando.encode()
             TCPClientSocket.send(comando)
-            salida = TCPClientSocket.recv(bufferSize)
-            print("[+] Espere...")        
-            salida = salida.decode()
+            print("[+] Espere...")
+            salida = TCPClientSocket.recv(bufferSize).decode()                                
             print("[+] Salida...")
             print(salida)
 except Exception:    
